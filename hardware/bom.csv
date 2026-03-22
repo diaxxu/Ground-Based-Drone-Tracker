@@ -1,0 +1,26 @@
+id,category,description,part_number,manufacturer,supplier,supplier_url,unit_cost_usd,qty,subtotal_usd,notes
+1,Sensing,77 GHz FMCW radar eval board,AWR1843BOOST,Texas Instruments,Mouser,https://www.mouser.com/ProductDetail/Texas-Instruments/AWR1843BOOST,99.00,1,99.00,Includes on-chip DSP and antenna array. No additional radar hardware needed.
+2,Sensing,1080p global shutter USB camera,ELP-USB100W05MT-DL36,ELP,Amazon,https://www.amazon.com/dp/B07VFPM2FN,45.00,1,45.00,OV2710 sensor. Must be global shutter — do not substitute a rolling shutter model.
+3,Sensing,8-50 mm varifocal CS-mount lens,MVL8M23,Thorlabs / Generic,AliExpress,,35.00,1,35.00,Any CS-mount 8-50mm varifocal works. Set to 25mm for 150m tracking distance.
+4,Compute,Jetson Orin Nano 8GB Developer Kit,945-13766-0000-000,NVIDIA,Arrow,https://www.arrow.com/en/products/945-13766-0000-000/nvidia,499.00,1,499.00,Do not use the 4GB variant — TensorRT YOLOv8 requires >5GB during model loading.
+5,Actuation,Brushless gimbal motor 200T KV,GBM5208-200T,iPower Motor,AliExpress,https://www.aliexpress.com/item/32818918637.html,55.00,2,110.00,Order 2 units — one for pan axis and one for tilt axis.
+6,Actuation,FOC motor controller,ODrive S1,ODrive Robotics,ODrive,https://odriverobotics.com/shop/odrive-s1,139.00,1,139.00,Controls both motors simultaneously. Firmware v0.6.8 or later required.
+7,Sensing,6-axis IMU breakout,BMI088,Bosch,Adafruit / SparkFun,,18.00,1,18.00,Any BMI088 breakout with I2C header works. Alternatively use the ICM-42688-P.
+8,Feedback,Absolute magnetic encoder 16-bit,AMT21A-V,CUI Devices,DigiKey,https://www.digikey.com/en/products/detail/cui-devices/AMT21A-V/7901606,55.00,2,110.00,Order 2 units. SPI interface. Mount magnet on motor shaft back face.
+9,Structure,30x30 aluminum extrusion 400mm,HFS5-3030-400,Misumi,Misumi,https://us.misumi-ec.com,12.00,4,48.00,Four lengths for base frame. Cut to size if needed.
+10,Structure,4mm aluminum plate 200x200mm,Generic,Generic,Online Metals,,22.00,1,22.00,Base plate for motor mounts. 5052 alloy preferred.
+11,Power,24V 10A switching power supply,S-240-24,Mean Well,Amazon,,35.00,1,35.00,Powers ODrive and motors. Jetson powered separately via USB-C PD.
+12,Power,5V 5A buck converter,D24V50F5,Pololu,Pololu,https://www.pololu.com/product/2851,12.00,1,12.00,Powers Jetson from 24V rail if USB-C PD supply unavailable.
+13,Power,12V 3A buck converter,D24V22F12,Pololu,Pololu,https://www.pololu.com/product/2858,10.00,1,10.00,Powers camera and fan from 24V rail.
+14,Storage,256GB NVMe SSD M.2 2280,Generic NVMe,Generic,Amazon,,30.00,1,30.00,For Jetson root filesystem and bag file logging. Any M.2 2280 NVMe.
+15,Networking,5-port gigabit switch,TL-SG105,TP-Link,Amazon,,18.00,1,18.00,Optional — only needed if adding remote monitoring laptop.
+16,Connectors,XT60 male+female pairs x5,XT60,Amass,Amazon,,8.00,1,8.00,Main power connectors on 24V rail.
+17,Connectors,JST-PH 2.0 assortment,Generic,Generic,Amazon,,7.00,1,7.00,Signal connectors for IMU and encoder power lines.
+18,Wiring,14 AWG silicone wire 1m red+black,Generic,Generic,Amazon,,6.00,1,6.00,Main power wiring from PSU to ODrive.
+19,Wiring,24 AWG stranded wire assortment,Generic,Generic,Amazon,,8.00,1,8.00,Signal wiring for UART, I2C, SPI connections.
+20,Fasteners,M3 socket head bolts assortment,Generic,Generic,Amazon,,9.00,1,9.00,M3x6 M3x10 M3x16 for motor mounts and frame assembly.
+21,Fasteners,M5 T-slot nuts and bolts,Generic,Generic,Amazon,,7.00,1,7.00,For attaching plates to aluminum extrusion.
+22,Bearings,6804-2RS thin section bearing x2,6804-2RS,Generic,Amazon,,14.00,2,28.00,Pan axis thrust bearing. 20x32x7mm.
+23,Thermal,Thermal pad and paste,Generic,Generic,Amazon,,5.00,1,5.00,For ODrive heatsink attachment.
+,,,,,,,,TOTAL,$1,293.00,
+,,,,,,,,BUDGET REMAINING,$707.00,Buffer for shipping / reprints / spares

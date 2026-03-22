@@ -1,0 +1,71 @@
+# Ground Tracker — Parameter File
+# Edit this file to match your hardware configuration.
+# All parameters have sensible defaults. The only values you MUST change
+# are the camera intrinsics and extrinsics (filled in by calibrate_extrinsics.py).
+
+radar_driver:
+  ros__parameters:
+    data_port:   /dev/ttyUSB1
+    config_port: /dev/ttyUSB0
+    config_file: firmware/awr1843_cfg.cfg
+    frame_id:    radar
+
+camera_tracker:
+  ros__parameters:
+    camera_index:        0
+    frame_width:         1280
+    frame_height:        720
+    fps:                 120
+    engine_path:         config/yolov8n.engine
+    yolo_every_n_frames: 6
+    confidence_threshold: 0.35
+    # Leave empty to track any class. Use '0' for person (test/debug).
+    # For a trained drone detector model, set to the drone class ID.
+    target_class_ids:    ""
+
+ekf_controller:
+  ros__parameters:
+    params_file:        config/params.yaml
+    predict_rate_hz:    1000
+    output_rate_hz:     200
+    system_latency_s:   0.0125
+    # EKF process noise (tune if track is too noisy or too slow to respond)
+    process_noise_pos:  0.0001
+    process_noise_vel:  0.01
+    process_noise_acc:  1.0
+    # Radar measurement noise (match your AWR1843 spec sheet)
+    radar_noise_range:  0.04
+    radar_noise_angle:  0.02
+    radar_noise_rdot:   0.10
+    # Camera noise (pixels, increase if CSRT centroid is noisy)
+    camera_noise_px:    2.0
+
+gimbal_controller:
+  ros__parameters:
+    odrive_serial:       ""       # Leave empty to use first ODrive found
+    pan_axis:            0
+    tilt_axis:           1
+    pan_gear_ratio:      1.0      # Direct drive = 1.0
+    tilt_gear_ratio:     1.0
+    pan_limit_deg:       175.0
+    tilt_limit_up_deg:   90.0
+    tilt_limit_down_deg: -20.0
+    command_rate_hz:     200
+    imu_feedforward_gain: 0.8    # Reduce if gimbal oscillates. Increase to 1.0 for stiffer rejection.
+
+# Camera intrinsics — filled in by calibrate_extrinsics.py
+# Format: row-major 3x3 matrix as 9 floats
+camera:
+  intrinsics: [1000.0, 0.0, 640.0,
+                 0.0, 1000.0, 360.0,
+                 0.0,    0.0,   1.0]
+  distortion: [0.0, 0.0, 0.0, 0.0, 0.0]  # k1 k2 p1 p2 k3
+
+# Extrinsic transform from radar frame to camera frame — filled by calibrate_extrinsics.py
+# R: 3x3 rotation matrix (row-major, 9 floats)
+# t: 3x1 translation vector in meters
+extrinsics:
+  R_radar_to_camera: [1.0, 0.0, 0.0,
+                      0.0, 1.0, 0.0,
+                      0.0, 0.0, 1.0]
+  t_radar_to_camera: [0.0, 0.0, 0.0]
