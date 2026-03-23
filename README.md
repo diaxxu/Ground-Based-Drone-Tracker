@@ -1,10 +1,11 @@
 # Ground Tracker — Radar + Camera Drone Tracker
+<img width="1113" height="620" alt="image" src="https://github.com/user-attachments/assets/6fb8c495-16a3-4e29-939f-7f8b4d0dc430" />
 
-> **Under $1,300 in off-the-shelf parts. 12 ms end-to-end latency. 120 deg/s tracking rate. Fully reproducible from this repo.**
+
+> **Under $1,300 in off-the-shelf parts. 12 ms end-to-end latency. 120 deg/s tracking rate.**
 
 A ground-based pan-tilt tracker that locks onto aerial targets using a 77 GHz FMCW radar for detection and a global-shutter camera for precision centroid lock. An Extended Kalman Filter fuses both sensors into a predictive 3D track. A direct-drive brushless gimbal points the payload at where the target will be — not where it was.
 
-**No proprietary hardware. No closed firmware. No cloud dependency.** Just a TI radar dev board, a USB camera, a Jetson Orin Nano, and open-source software.
 
 ---
 
@@ -119,7 +120,7 @@ A ground-based pan-tilt tracker that locks onto aerial targets using a 77 GHz FM
 
 ## Bill of Materials
 
-Total cost: **$1,293 USD** — budget remaining: **$707** against the $2,000 cap.
+Total cost: **$1,293 USD** 
 
 ### Sensing
 
