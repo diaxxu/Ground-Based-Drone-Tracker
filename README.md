@@ -1,4 +1,4 @@
-# Ground Tracker — Radar + Camera Drone Tracker
+# Ground Tracker — Radar
 <img width="1113" height="620" alt="image" src="https://github.com/user-attachments/assets/6fb8c495-16a3-4e29-939f-7f8b4d0dc430" />
 
 
